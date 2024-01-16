@@ -1,15 +1,23 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React from 'react';
+import { Provider } from 'react-redux';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import store from './redux/store';
+import Greeting from './components/Greetings';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/hello" render={() => <h1>Hello World</h1>} />
-      </Switch>
-    </Router>
-  )
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Greeting />} />
+        </Routes>
+      </Router>
+    </Provider>
+  );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root'),
+);
