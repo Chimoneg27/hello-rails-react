@@ -1,4 +1,4 @@
-const path    = require("path")
+const path = require("path")
 const webpack = require("webpack")
 
 module.exports = {
@@ -12,15 +12,15 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
+        use: ["babel-loader"]
+      }
     ]
   },
   output: {
     filename: "[name].js",
     sourceMapFilename: "[file].map",
     chunkFormat: "module",
-    path: path.resolve(__dirname, "app/assets/builds"),
+    path: path.resolve(__dirname, "app/assets/builds")
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
